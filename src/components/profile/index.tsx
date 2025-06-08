@@ -1,3 +1,4 @@
+import { User } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 const Profil: React.FC = () => {
@@ -10,22 +11,29 @@ const Profil: React.FC = () => {
     setEmail(storedEmail);
     setToken(storedToken);
   }, []);
-
+  
   return (
-    <div className="p-6 bg-black text-white">
-      <h2 className="text-3xl font-semibold mb-6">Profil ma’lumotlari</h2>
+    <div className="p-8 bg-gradient-to-br from-gray-900 via-black to-gray-800 min-h-screen text-white flex flex-col items-center">
+      <h2 className="text-4xl font-bold mb-8">Profil ma’lumotlari</h2>
 
-      {email ? (
-        <div className="bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-md">
-          <p className="mb-4 text-lg">
-            <strong>Email:</strong> {email}
-          </p>
+      <div className="bg-gray-900 p-6 rounded-2xl shadow-lg w-full max-w-md flex items-center gap-4">
+        <div className="bg-gray-700 p-4 rounded-full">
+          <User size={40} className="text-white" />
         </div>
-      ) : (
-        <p className="text-gray-400 text-lg">Profil ma’lumotlari topilmadi.</p>
-      )}
+        
+        {email ? (
+          <div>
+            <p className="text-lg text-gray-300">
+              <span className="font-semibold text-white">Email:</span> {email}
+            </p>
+          </div>
+        ) : (
+          <p className="text-gray-400 text-lg">Profil ma’lumotlari topilmadi.</p>
+        )}
+      </div>
     </div>
   );
-};
+}
+
 
 export default Profil;
